@@ -11,7 +11,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/test', (req, res) => {
-    axios.post('https://novel-fac48.firebaseio.com/test.json', req.body)
+    axios.post('https://novel-fac48.firebaseio.com/test.json', req.body.event)
         .then()
 
     axios.post('https://hooks.slack.com/services/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', req.body.event.text)
