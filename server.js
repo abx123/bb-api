@@ -1,6 +1,8 @@
 const express = require('express')
+const axios = require('axios')
 const app = express();
 const port = process.env.PORT || 8000
+
 
 app.use(express.json())
 
@@ -9,6 +11,8 @@ app.get('/', (req, res) => {
 });
 
 app.post('/test', (req, res) => {
+    axios.post('https://novel-fac48.firebaseio.com/test.json', req.body)
+        .then()
     res.send(req.body);
 });
 app.listen(port, () => {
