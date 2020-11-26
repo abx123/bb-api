@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express();
+const port = process.env.PORT || 8000
 
 app.use(express.json())
 
@@ -10,6 +11,6 @@ app.get('/', (req, res) => {
 app.post('/test', (req, res) => {
     res.send(req.body);
 });
-app.listen(8000, () => {
-    console.log('Example app listening on port 8000!')
+app.listen(port, () => {
+    console.log('Example app listening on port ' + port + '!')
 });
