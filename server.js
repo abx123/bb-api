@@ -17,8 +17,9 @@ app.post('/test', (req, res) => {
     let cmd = req.body.event.text.substring(15).split(/ (.+)/)
     let subCmd = cmd[1].split(/ (.+)/)
     let date = subCmd[1].split(/ (.+)/)
+    let test = date[0] + '/2020'
     let slackReq = {
-        text: ':bb-here::bb-who-find:\n ' + cmd[0] + '\n ' + subCmd[0] + '\n' + Date.parse(date[0] + '/2020') + '\n' + date[0] + '/YYYY'
+        text: ':bb-here::bb-who-find:\n ' + cmd[0] + '\n ' + subCmd[0] + '\n' + Date.parse(date[0] + '/2020') + '\n' + test
     }
     if (req.body.event.channel === bb2) {
         axios.post('https://hooks.slack.com/services/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', JSON.stringify(slackReq))
