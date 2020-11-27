@@ -18,9 +18,8 @@ app.post('/test', (req, res) => {
     let slackReq = { text: ':bb-here::bb-who-find:' }
     if (req.body.event.channel === bb2) {
         axios.post('https://hooks.slack.com/services/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', JSON.stringify(slackReq))
-            .then(
-                setTimeout(axios.post('https://hooks.slack.com/services/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', JSON.stringify({ text: req.body.event.text.substring(15).split(' ')[0] })), 500)
-            )
+
+        axios.post('https://hooks.slack.com/services/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', JSON.stringify({ text: req.body.event.text.substring(15).split(' ')[0] }))
         res.send(req.body);
     }
 });
