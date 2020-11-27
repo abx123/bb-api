@@ -15,7 +15,7 @@ app.post('/test', (req, res) => {
     axios.post('https://novel-fac48.firebaseio.com/test.json', req.body.event)
         .then()
         // let cmd = { text: req.body.event.text.substring(15).split(' ') }
-    let slackReq = { text: ':bb-here::bb-who-find:' + req.body.event.text.substring(15).split(' ')[0] }
+    let slackReq = { text: ':bb-here::bb-who-find:' }
     if (req.body.event.channel === bb2) {
         axios.post('https://hooks.slack.com/services/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', JSON.stringify(slackReq))
             .then(
