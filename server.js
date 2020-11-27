@@ -16,7 +16,7 @@ app.post('/test', (req, res) => {
         .then()
         // let cmd = { text: req.body.event.text.substring(15).split(' ') }
     let slackReq = {
-        text: ':bb-here::bb-who-find:\n ' + req.body.event.text.substring(15).split(' ')[0]
+        text: ':bb-here::bb-who-find:\n ' + req.body.event.text.substring(15).split(/ (.+)/)[0]
     }
     if (req.body.event.channel === bb2) {
         axios.post('https://hooks.slack.com/services/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', JSON.stringify(slackReq))
