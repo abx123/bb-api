@@ -39,7 +39,8 @@ app.post('/test', (req, res) => {
         case 3:
             replyObj.text = 'command:' + command[0] + '\n subcmd:' + command[1] + '\n date:' + command[2]
             break;
-        case command.length > 3:
+        case (command.length > 3):
+            console.log('>3', command.length)
             var prefix = cmdtxt.match(/(.*?\s){3}/g)
             replyObj.text = 'command:' + command[0] + '\n subcmd:' + command[1] + '\n date:' + command[2] + '\n text:' + cmdtxt.substring(prefix.length)
             break;
