@@ -47,7 +47,7 @@ app.post('/test', (req, res) => {
             break;
     }
 
-    axios.post('https://hooks.slack.com/services/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', JSON.stringify(replyObj))
+    axios.post('https://hooks.slack.com/services/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', JSON.stringify(replyObj))
     res.send(req.body);
 });
 app.listen(port, () => {
