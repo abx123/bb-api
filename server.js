@@ -33,7 +33,7 @@ app.post('/test', (req, res) => {
         case (command.length == 1):
             console.log('command[0]:' + '!')
             replyObj.text = 'command:' + command[0]
-            if (command[0] = "") {
+            if (command[0]) {
                 replyObj.text = ':bb-here::bb-who-find:'
             }
             break;
