@@ -32,6 +32,9 @@ app.post('/test', (req, res) => {
     switch (true) {
         case (command.length == 1):
             replyObj.text = 'command:' + command[0]
+            if (command[0] = "") {
+                replyObj.text = ':bb-here::bb-who-find:'
+            }
             break;
         case (command.length == 2):
             replyObj.text = 'command:' + command[0] + '\n subcmd:' + command[1]
