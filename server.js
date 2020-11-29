@@ -31,11 +31,22 @@ app.post('/test', (req, res) => {
 
 
     // }
-    let command = req.body.event.text.substring(15).split(' ')
+    cmdtxt = req.body.event.text.substring(15)
+    let command = cmdtxt.split(' ')
     let replyObj = { text: ':bb-no-understand:' }
     switch (command.length) {
         case 1:
             replyObj.text = 'command:' + command[0]
+            break;
+        case 2:
+            replyObj.text = 'command:' + command[0] + '\n subcmd:' + command[1]
+            break;
+        case 3:
+            replyObj.text = 'command:' + command[0] + '\n subcmd:' + command[1] + '\n date:' + command[2]
+            break;
+        case command.length > 3:
+            var prefix = cmdtxt.match(/(.*?\s){3}/g)
+            replyObj.text = 'command:' + command[0] + '\n subcmd:' + command[1] + '\n date:' + command[2] + '\n text:' + cmdtxt.substring(prefix.length)
             break;
         default:
             break;
