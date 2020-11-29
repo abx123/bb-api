@@ -29,14 +29,14 @@ app.post('/test', (req, res) => {
     cmdtxt = req.body.event.text.substring(15)
     let command = cmdtxt.split(' ')
     let replyObj = { text: ':bb-no-understand:' }
-    switch (command.length) {
-        case 1:
+    switch (true) {
+        case (command.length == 1):
             replyObj.text = 'command:' + command[0]
             break;
-        case 2:
+        case (command.length == 2):
             replyObj.text = 'command:' + command[0] + '\n subcmd:' + command[1]
             break;
-        case 3:
+        case (command.length == 3):
             replyObj.text = 'command:' + command[0] + '\n subcmd:' + command[1] + '\n date:' + command[2]
             break;
         case (command.length > 3):
