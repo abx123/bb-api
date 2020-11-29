@@ -52,7 +52,7 @@ app.post('/test', (req, res) => {
             break;
     }
     console.log('command', command, 'cmdlength', command.length, 'slack', process.env.slack)
-    axios.post('https://hooks.slack.com/services/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', JSON.stringify(replyObj))
+    axios.post(process.env.slack, JSON.stringify(replyObj))
     res.send(req.body);
 });
 app.listen(port, () => {
